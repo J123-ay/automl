@@ -6,23 +6,23 @@ Docker [tutorial](https://www.dataquest.io/blog/docker-data-science)
 Docker python [images](https://hub.docker.com/_/python/)  
 
 ## Setup docker container for AutoML  
-Build image  
+#### Build image  
 `docker build --tag server .`  
-Run container  
+#### Run container  
 `docker run -it -p 8888:8888 server jupyter-lab --allow-root`  
-Push changes to docker after running notebook experiments  
+#### Push changes to docker after running notebook experiments  
 ```  
 docker ps -a #get image_id  
 docker commit image_id name  
 ```  
-Copy notebooks from docker to local  
+#### Copy notebooks from docker to local  
 ```  
 cd automl #on local  
 docker cp image_id:/code/automl/notebooks .  
 ```
-Local to docker  
+#### Local to docker  
 `docker cp notebooks/. image_id:/code/automl/notebooks`  
-Remove Docker images  
+#### Remove Docker images  
 ```  
 docker system prune -a # Removes base image and its derivatives  
 docker system prune # Removes image created over base  
